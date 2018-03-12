@@ -3,7 +3,7 @@ class CreatesProject
 
   def initialize(name: "", task_string: "")
     @name = name
-    @task_string = task_string
+    @task_string = task_string || ""
     @success = false
   end
 
