@@ -19,8 +19,8 @@ class CreatesProject
 
   def create
     build
-    result = project.save
-    @success = result
+    @success = project.save
+    @success
   end
 
   def convert_string_to_tasks

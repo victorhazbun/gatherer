@@ -11,8 +11,7 @@ class ProjectsController < ApplicationController
     @workflow = CreatesProject.new(
       name: params[:project][:name],
       task_string: params[:project][:tasks])
-    @workflow.create
-    if @workflow.success?
+    if @workflow.create
       redirect_to projects_path
     else
       @project = @workflow.project

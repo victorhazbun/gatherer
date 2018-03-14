@@ -24,7 +24,7 @@ RSpec.describe "adding a project", type: :system do
 
   it "behaves correctly in the face of a surprising database failure" do
     workflow = instance_spy(CreatesProject,
-      success?: false, project: Project.new)
+      create: false, project: Project.new)
     allow(CreatesProject).to receive(:new)
       .with(name: "Real Name",
             task_string: "Choose Fabric:3\r\nMake it Work:5")
