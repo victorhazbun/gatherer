@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem "bootsnap"
+gem "foreman"
 gem "puma"
 gem "rails", "5.2.0rc1"
 gem "sass-rails", github: "rails/sass-rails"
