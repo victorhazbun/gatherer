@@ -22,12 +22,12 @@ class Task < ApplicationRecord
 
   def first_in_project?
     return false unless project
-    project.tasks.first == self
+    project.tasks.to_a.first == self
   end
 
   def last_in_project?
     return false unless project
-    project.tasks.last == self
+    project.tasks.to_a.last == self
   end
 
   def previous_task
@@ -39,9 +39,9 @@ class Task < ApplicationRecord
   end
 
   def swap_order_with(other)
-    other.project_order, self.project_order = project_order, other.project_order
-    save
-    other.save
+    self_project_order = project_order
+    self.update_attributes(project_order: other.project_order)
+    other.update_attributes(project_order: self_project_order)
   end
 
   def move_up

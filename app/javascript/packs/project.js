@@ -17,7 +17,7 @@ export class Project {
     this.name = data.project.name
     data.project.tasks.forEach(taskData => {
       this.appendTask(new Task(
-        taskData.title, taskData.size, taskData.project_order))
+        taskData.id, taskData.title, taskData.size, taskData.project_order))
     })
     return this
   }

@@ -32,7 +32,7 @@ describe("Project Loader", () => {
   it("can generate correct data for a loader", () => {
     const loader = new ProjectLoader(new Project(1))
     expect(loader.ajaxData().dataType).toEqual("json")
-    expect(loader.ajaxData().url).toEqual("/projects/1.js")
+    expect(loader.ajaxData().url).toEqual("/projects/1.json")
   })
 
   it("can create a project and tasks from Data", () => {

@@ -9,7 +9,7 @@ export class ProjectLoader {
 
   ajaxData() {
     return {
-      url: `/projects/${this.project.id}.js`,
+      url: `/projects/${this.project.id}.json`,
       dataType: 'json'
     }
   }

@@ -14,9 +14,10 @@ When(/^I complete the new task form$/) do
   click_on("Add Task")
 end
 
-Then(/^I am back on the project page$/) do
-  expect(current_path).to eq(project_path(@project))
+Then(/^I see the middle task is in the list$/) do
+  expect(page).to have_selector("tbody tr:nth-child(2) td.name", text: "Write a book")
 end
+
 
 Then(/^I see the new task is last in the list$/) do
   within("#task_3") do
@@ -33,7 +34,5 @@ When(/^I click to move the new task up$/) do
 end
 
 Then(/^the new task is in the middle of the list$/) do
-  within("#task_2") do
-    expect(page).to have_selector(".name", text: "Find UFOs")
-  end
+  expect(page).to have_selector("tbody:nth-child(2) .name", text: "Find UFOs")
 end

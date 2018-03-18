@@ -34,6 +34,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "rubocop"
   gem "selenium-webdriver"
+  gem "chromedriver-helper"
 end
 
 group :development do

@@ -19,14 +19,15 @@ class CreatesProject
 
   def create
     build
-    @success = project.save
-    @success
+    result = project.save
+    @success = result
   end
 
   def convert_string_to_tasks
-    task_string.split("\n").map do |one_task|
+    task_string.split("\n").map.with_index do |one_task, index|
       title, size_string = one_task.split(":")
-      Task.new(title: title, size: size_as_integer(size_string))
+      Task.new(title: title,
+               size: size_as_integer(size_string), project_order: index + 1)
     end
   end
 
