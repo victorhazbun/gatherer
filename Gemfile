@@ -13,6 +13,8 @@ gem "sass-rails", github: "rails/sass-rails"
 gem "sqlite3"
 
 gem "coffee-rails"
+gem "devise"
+
 gem "jbuilder"
 gem "turbolinks"
 gem "uglifier"

@@ -1,6 +1,7 @@
 Feature: Adding a task
 
   Background:
+    Given I am a new, authenticated user
     Given a project with two tasks
 
   @javascript

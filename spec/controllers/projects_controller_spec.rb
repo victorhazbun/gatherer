@@ -2,6 +2,10 @@ require "rails_helper"
 
 RSpec.describe ProjectsController, type: :controller do
 
+  before(:example) do
+    sign_in(create(:user))
+  end
+
   describe "create" do
     it "calls the workflow with parameters" do
       workflow = instance_spy(CreatesProject, success?: true)
