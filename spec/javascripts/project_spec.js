@@ -10,9 +10,9 @@ describe("Projects", () => {
 
   beforeEach(() => {
     project = new Project(1)
-    project.appendTask(new Task("Start Project", 1))
-    project.appendTask(new Task("Middle Project", 2))
-    project.appendTask(new Task("End Project", 3))
+    project.appendTask(new Task(1, "Start Project", 1, 3))
+    project.appendTask(new Task(2, "Middle Project", 2, 2))
+    project.appendTask(new Task(3, "End Project", 3, 1))
   })
 
   it("can identify the first element of a project", () => {

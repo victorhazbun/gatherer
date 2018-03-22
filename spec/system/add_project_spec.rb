@@ -1,9 +1,10 @@
 require "rails_helper"
 
-RSpec.describe "adding a project", type: :system do
+RSpec.describe "adding a project" do
+  let(:user) { create(:user) }
 
   before(:example) do
-    sign_in(create(:user))
+    sign_in(user)
   end
 
   it "allows a user to create a project with tasks" do
@@ -32,7 +33,8 @@ RSpec.describe "adding a project", type: :system do
       success?: false, project: Project.new)
     allow(CreatesProject).to receive(:new)
       .with(name: "Real Name",
-            task_string: "Choose Fabric:3\r\nMake it Work:5")
+            task_string: "Choose Fabric:3\r\nMake it Work:5",
+            users: [user])
       .and_return(workflow)
     visit new_project_path
     fill_in "Name", with: "Real Name"

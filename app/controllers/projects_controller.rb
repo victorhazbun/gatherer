@@ -16,13 +16,14 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = Project.all
+    @projects = current_user.visible_projects
   end
 
   def create
     @workflow = CreatesProject.new(
       name: params[:project][:name],
-      task_string: params[:project][:tasks])
+      task_string: params[:project][:tasks],
+      users: [current_user])
     @workflow.create
     if @workflow.success?
       redirect_to projects_path

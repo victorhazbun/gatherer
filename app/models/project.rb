@@ -8,6 +8,10 @@ class Project < ApplicationRecord
 
   validates :name, presence: true
 
+  def self.all_public
+    where(public: true)
+  end
+
   def self.velocity_length_in_days
     21
   end

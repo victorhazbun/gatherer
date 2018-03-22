@@ -2,8 +2,10 @@ require "rails_helper"
 
 RSpec.describe ProjectsController, type: :controller do
 
+  let(:user) { create(:user) }
+
   before(:example) do
-    sign_in(create(:user))
+    sign_in(user)
   end
 
   describe "create" do
@@ -13,7 +15,7 @@ RSpec.describe ProjectsController, type: :controller do
       post :create,
         params: {project: {name: "Runway", tasks: "start something:2"}}
       expect(CreatesProject).to have_received(:new)
-        .with(name: "Runway", task_string: "start something:2")
+        .with(name: "Runway", task_string: "start something:2", users: [user])
     end
 
   end

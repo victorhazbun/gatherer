@@ -24,6 +24,8 @@ gem "capistrano-rails", group: :development
 gem "awesome_print"
 gem "webpacker"
 
+gem "loofah", "~> 2.2.1"
+
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "capybara"

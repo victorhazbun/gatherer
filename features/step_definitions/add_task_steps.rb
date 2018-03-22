@@ -1,5 +1,6 @@
 Given(/^a project with two tasks$/) do
   @project = Project.create(name: "Bluebook")
+  @project.roles.create(user: @user)
   @project.tasks.create(title: "Hunt the aliens", size: 1, project_order: 1)
   @project.tasks.create(title: "Write a book", size: 1, project_order: 2)
 end

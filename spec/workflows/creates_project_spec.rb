@@ -92,4 +92,11 @@ RSpec.describe CreatesProject do
     end
   end
 
+  it "adds users to the project" do
+    user = create(:user)
+    creator = CreatesProject.new(name: "Project Runway", users: [user])
+    creator.build
+    expect(creator.project.users).to eq([user])
+  end
+
 end
