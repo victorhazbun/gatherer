@@ -1,10 +1,12 @@
 import {TaskUpdater} from "../../../app/javascript/packs/task_updater.js"
 
 export class Task {
-  constructor(id, name, size, projectOrder) {
+  constructor(id, name, size, projectOrder, completedAt, userAvatarUrl) {
     this.id = id
     this.name = name
     this.size = size
+    this.completedAt = completedAt
+    this.userAvatarUrl = userAvatarUrl
     this.projectOrder = projectOrder
     this.project = null
     this.updater = new TaskUpdater(this)

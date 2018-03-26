@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :roles, dependent: :destroy
   has_many :projects, through: :roles
+  has_many :tasks, through: :nullify
 
   def can_view?(project)
     project.in?(visible_projects)
@@ -14,5 +15,14 @@ class User < ApplicationRecord
   def visible_projects
     return Project.all if admin?
     Project.where(id: project_ids).or(Project.all_public)
+  end
+
+  def avatar_url
+    adapter = AvatarAdapter.new(self)
+    adapter.image_url
+  end
+
+  def attributes
+    super.merge({avatar_url: avatar_url})
   end
 end

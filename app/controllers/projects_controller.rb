@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
     end
     respond_to do |format|
       format.html {}
-      format.json { render json: @project.as_json(root: true, include: :tasks) }
+      format.json { render json: @project.as_json(root: true, include: { tasks: { include:  :user } }) }
     end
   end
 

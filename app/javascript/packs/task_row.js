@@ -7,6 +7,11 @@ export class TaskRow {
     const row = $("<tr>").attr("id", `task_${this.task.id}`)
     row.append($("<td>", {class: "name"}).text(this.task.name))
     row.append($("<td>", {class: "size"}).text(this.task.size))
+    if (this.task.completedAt) {
+      const completedRow = row.append($("<td>", {class: "completed"}).text(this.task.completedAt));
+      completedRow.append($("<img>").attr("src", this.task.userAvatarUrl))
+    }
+
     const actionRow = $("<td>")
     if (!this.task.isFirst()) {
       actionRow.append($("<button>", {

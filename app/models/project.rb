@@ -54,4 +54,5 @@ class Project < ApplicationRecord
     return 1 if tasks.empty?
     (tasks.last.project_order || tasks.size) + 1
   end
+
 end

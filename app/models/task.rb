@@ -2,6 +2,7 @@ class Task < ApplicationRecord
   include Sizeable
 
   belongs_to :project, required: false
+  belongs_to :user, required: false
 
   def mark_completed(date = Time.current)
     self.completed_at = date
